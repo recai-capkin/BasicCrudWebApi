@@ -1,0 +1,19 @@
+﻿@model List<Factory>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Fabrika Adı</th>
+        </tr>
+    </thead>
+    @foreach (var data in Model)
+    {
+        <tbody>
+            <tr>
+                <th scope="row">@data.FactoryId</th>
+                <td>@data.FactoryName</td>
+            </tr>
+        </tbody>
+    }
+</table>
