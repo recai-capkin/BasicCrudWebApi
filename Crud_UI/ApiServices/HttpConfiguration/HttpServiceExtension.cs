@@ -19,5 +19,9 @@ namespace Crud_UI.ApiServices.HttpConfiguration
                 options.BaseAddress = new Uri(_Configuration["FactoryApiAddress"]);
             });
         }
+
+
+
+
     }
 }

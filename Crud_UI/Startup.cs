@@ -31,7 +31,6 @@ namespace Crud_UI
 
             var sP = services.BuildServiceProvider();
             HttpServiceExtension.Configure(sP.GetService<IConfiguration>());
-
             services.AddHttpService();
         }
 
