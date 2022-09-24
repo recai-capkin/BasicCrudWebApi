@@ -1,0 +1,12 @@
+﻿@model Factory
+
+@{
+    Layout = null;
+}
+<form asp-action="Add" asp-controller="Factory" method="post">
+    <h4>Fabrika Adı</h4>
+    <input type="text" asp-for="FactoryName" />
+    <br />
+    <br />
+    <input class="btn btn-danger" type="submit" value="Ekle" />
+</form>

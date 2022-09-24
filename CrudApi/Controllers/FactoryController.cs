@@ -38,5 +38,17 @@ namespace CrudApi.Controllers
             return Ok(returnData);
 
         }
+        [HttpDelete("delete-factory")]
+        public async Task<IActionResult> DeleteFactory(int factoryId)
+        {
+            bool data = _factoryDal.RemoveFactories(factoryId);
+            return Ok(data);
+        }
+        [HttpPut("update-factory")]
+        public async Task<IActionResult> UpdateFactory(Factory factory)
+        {
+            bool data = _factoryDal.UpdateFactories(factory);
+            return Ok(data);
+        }
     }
 }

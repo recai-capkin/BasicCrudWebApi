@@ -1,5 +1,10 @@
 ﻿@model List<Factory>
 
+
+    <h1 class="text-center">Fabrikalar</h1>
+<a onclick="showInPopup('@Url.Action("Add","Factory",null,Context.Request.Scheme)','Fabrika Ekle')" type="button" class="btn btn-primary">Ekle<i class="fa-solid fa-plus"></i></a>
+<br />
+<br />
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -15,9 +20,9 @@
                 <th scope="row">@data.FactoryId</th>
                 <td>@data.FactoryName</td>
                 <td>
-                    <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                    <a asp-action="details" asp-route-id="@data.FactoryId" type="button" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                    <a asp-action="update" asp-route-id="@data.FactoryId" type="button" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                    <a asp-action="delete" asp-route-id="@data.FactoryId" type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
         </tbody>

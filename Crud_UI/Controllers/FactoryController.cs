@@ -18,5 +18,27 @@ namespace Crud_UI.Controllers
             List<Factory> data = await _factoryApiService.GetAllFactory();
             return View(data);
         }
+        [HttpGet]
+        public async Task<IActionResult> Add()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Add(Factory factory)
+        {
+            var data = await _factoryApiService.AddFactory(factory);
+            return RedirectToAction("Index", "Factory");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Update()
+        {
+            return View();
+        }
+        [HttpPut]
+        public async Task<IActionResult> Update(Factory factory)
+        {
+            return View();
+        }
+
     }
 }
