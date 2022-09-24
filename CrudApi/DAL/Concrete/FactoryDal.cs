@@ -41,10 +41,7 @@ namespace CrudApi.DAL.Concrete
         public bool UpdateFactories(Factory factory)
         {
             Factory data = GetFactories(factory.FactoryId);
-            data = new Factory()
-            {
-                FactoryName = factory.FactoryName
-            };
+            data.FactoryName = factory.FactoryName;
             return _baseContext.SaveChanges()>0;
         }
     }

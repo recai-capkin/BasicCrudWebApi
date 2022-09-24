@@ -30,14 +30,16 @@ namespace Crud_UI.Controllers
             return RedirectToAction("Index", "Factory");
         }
         [HttpGet]
-        public async Task<IActionResult> Update()
+        public async Task<IActionResult> Update(int id)
         {
-            return View();
+            var data = await _factoryApiService.GetFactory(id);
+            return View(data);
         }
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> Update(Factory factory)
         {
-            return View();
+            bool data = await _factoryApiService.UpdateFactory(factory);
+            return RedirectToAction("Index", "Factory");
         }
 
     }

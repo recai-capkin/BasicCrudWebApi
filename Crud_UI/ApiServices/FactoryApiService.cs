@@ -48,6 +48,15 @@ namespace Crud_UI.ApiServices
             }
             return false;
         }
+        public async Task<Factory> GetFactory(int factoryId)
+        {
+            var response = await _client.GetAsync(ApiEndpointName.getFactory+factoryId);
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<Factory>(await response.Content.ReadAsStringAsync());
+            }
+            return null;
+        }
 
     }
 }

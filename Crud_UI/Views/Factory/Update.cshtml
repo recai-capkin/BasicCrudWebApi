@@ -1,1 +1,10 @@
-﻿
+﻿@model Factory
+
+<form asp-action="Update" asp-controller="Factory" method="post">
+    <h4>Fabrika Adı</h4>
+    <input type="hidden" asp-for="FactoryId" value="@Model.FactoryId"/>
+    <input type="text" asp-for="FactoryName" value="@Model.FactoryName"/>
+    <br />
+    <br />
+    <input class="btn btn-danger" type="submit" value="Güncelle" />
+</form>
