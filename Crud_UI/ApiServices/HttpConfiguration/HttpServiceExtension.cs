@@ -18,6 +18,10 @@ namespace Crud_UI.ApiServices.HttpConfiguration
             {
                 options.BaseAddress = new Uri(_Configuration["FactoryApiAddress"]);
             });
+            services.AddHttpClient<WorkerApiService>(options =>
+            {
+                options.BaseAddress = new Uri(_Configuration["WorkerApiAddress"]);
+            });
         }
 
 

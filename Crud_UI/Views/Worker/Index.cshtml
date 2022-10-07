@@ -1,0 +1,33 @@
+﻿@using Crud_UI.Dtos
+@model List<WorkerListDto>
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">İşçi Adı</th>
+            <th scope="col">İşçi Soyadı</th>
+            <th scope="col">İşçi Pozisyonu</th>
+            <th scope="col">İşçi Çalıştığı Fabrika</th>
+            <th scope="col">Eylemler</th>
+        </tr>
+    </thead>
+    @foreach (var data in Model)
+    {
+        <tbody>
+            <tr>
+                <th scope="row">@data.WorkerId</th>
+                <td>@data.WorkerName</td>
+                <td>@data.WorkerSurname</td>
+                <td>@data.Position.PositionName</td>
+                <td>@data.Factory.FactoryName</td>
+                <td>
+                    <a asp-action="details" asp-route-id="@data.WorkerId" type="button" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                    <a asp-action="update" asp-route-id="@data.WorkerId" type="button" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                    <a asp-action="delete" asp-route-id="@data.WorkerId" type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>

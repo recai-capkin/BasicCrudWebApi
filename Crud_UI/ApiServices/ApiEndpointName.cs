@@ -7,5 +7,6 @@
         public readonly static string deleteFactory = "delete-factory";
         public readonly static string updateFactory = "update-factory";
         public readonly static string getFactory = "get-factory?factoryId=";
+        public readonly static string getAllWorkers = "get-all-workers";
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Crud_UI.Models;
 using Crud_UI.Models.Context;
 using CrudApi.DAL.Interface;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CrudApi.DAL.Concrete
 {
@@ -19,7 +21,8 @@ namespace CrudApi.DAL.Concrete
 
         public List<Workers> GetAllWorkers()
         {
-            throw new System.NotImplementedException();
+            List<Workers> factories = _baseContext.Workers.Include(x => x.WorkerFactory).Include(x => x.WorkerPosition).ToList();
+            return factories;
         }
 
         public Workers GetWorkers(int workerId)

@@ -1,6 +1,5 @@
 ﻿using Crud_UI.Models;
 using CrudApi.DAL.Interface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
