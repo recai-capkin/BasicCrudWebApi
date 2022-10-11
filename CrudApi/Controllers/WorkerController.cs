@@ -23,5 +23,11 @@ namespace CrudApi.Controllers
             return Ok(returnData);
 
         }
+        [HttpGet("get-worker")]
+        public async Task<IActionResult> GetWorker(int workerId)
+        {
+            Workers returnData = _workerDal.GetWorker(workerId);
+            return Ok(returnData);
+        }
     }
 }

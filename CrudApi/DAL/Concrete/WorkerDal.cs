@@ -25,9 +25,10 @@ namespace CrudApi.DAL.Concrete
             return factories;
         }
 
-        public Workers GetWorkers(int workerId)
+        public Workers GetWorker(int workerId)
         {
-            throw new System.NotImplementedException();
+            Workers workers = _baseContext.Workers.Include(x => x.WorkerFactory).Include(y => y.WorkerPosition).Where(x => x.WorkerId == workerId).FirstOrDefault();
+            return workers;
         }
 
         public bool RemoveWorkers(int workerId)

@@ -23,9 +23,9 @@ namespace Crud_UI.ApiServices
             }
             return null;
         }
-        public async Task<bool> UpdateWorker(Factory factory)
+        public async Task<bool> UpdateWorker(Workers worker)
         {
-            var data = new StringContent(JsonConvert.SerializeObject(factory));
+            var data = new StringContent(JsonConvert.SerializeObject(worker));
             data.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
             var response = await _client.PutAsync(ApiEndpointName.updateFactory, data);
             if (response.IsSuccessStatusCode)
@@ -34,12 +34,12 @@ namespace Crud_UI.ApiServices
             }
             return false;
         }
-        public async Task<Factory> GetWorker(int factoryId)
+        public async Task<Workers> GetWorker(int workerId)
         {
-            var response = await _client.GetAsync(ApiEndpointName.getFactory + factoryId);
+            var response = await _client.GetAsync(ApiEndpointName.getWorker + workerId);
             if (response.IsSuccessStatusCode)
             {
-                return JsonConvert.DeserializeObject<Factory>(await response.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<Workers>(await response.Content.ReadAsStringAsync());
             }
             return null;
         }

@@ -1,4 +1,5 @@
 ﻿using Crud_UI.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 
 namespace Crud_UI.Dtos
@@ -7,5 +8,6 @@ namespace Crud_UI.Dtos
     {
         public Position Position;
         public Factory Factory;
+        
     }
 }

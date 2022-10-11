@@ -5,7 +5,7 @@ namespace CrudApi.DAL.Interface
 {
     public interface IWorkerDal
     {
-        Workers GetWorkers(int workerId);
+        Workers GetWorker(int workerId);
         bool AddWorkers(Workers workers);
         bool RemoveWorkers(int workerId);
         bool UpdateWorkers(Workers workers);
