@@ -14,7 +14,13 @@ namespace CrudApi.DAL.Concrete
         }
         public bool AddPositions(Position position)
         {
-            throw new System.NotImplementedException();
+           var data = _baseContext.Positions.Add(position);
+            if (data.State == Microsoft.EntityFrameworkCore.EntityState.Added)
+            {
+                _baseContext.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public List<Position> GetAllPositions()

@@ -1,5 +1,7 @@
 ﻿using CrudApi.DAL.Concrete;
 using CrudApi.DAL.Interface;
+using CrudApi.SMTP.Interfaces;
+using CrudApi.SMTP.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CrudApi.DAL.ServicesConfiguration
@@ -11,6 +13,7 @@ namespace CrudApi.DAL.ServicesConfiguration
             serviceDescriptors.AddScoped<IFactoryDal, FactoryDal>();
             serviceDescriptors.AddScoped<IPositionDal, PositionDal>();
             serviceDescriptors.AddScoped<IWorkerDal, WorkerDal>();
+            serviceDescriptors.AddScoped<IEmailService, EmailService>();
         }
     }
 }
