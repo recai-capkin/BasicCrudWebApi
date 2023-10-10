@@ -21,15 +21,13 @@ namespace CrudApi.SMTP.Services
         }
         public bool SendEmail(EmailDto emailDto)
         {
-            
-
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse("holly.gerhold4@ethereal.email"));
             email.To.Add(MailboxAddress.Parse(emailDto.To));
             email.Subject = emailDto.Subject;
             email.Body = new TextPart(TextFormat.Html) { Text = UpdatePlaceHolders(GetEmailBody("Information"),emailDto.PlaceHolders) };
 
-            using var smtp = new SmtpClient();
+            var smtp = new SmtpClient();
             smtp.Connect(_configuration.GetSection("EmailHost").Value, 587, SecureSocketOptions.StartTls);
             smtp.Authenticate(_configuration.GetSection("EmailUserName").Value, _configuration.GetSection("EmailPassword").Value);
             var data = smtp.Send(email);

@@ -22,18 +22,19 @@ namespace CrudApi.Controllers
             _emailService = emailService;   
         }
         [HttpPost("Add-Position")]
-        public async Task<bool> AddPosition(Position position)
+        public async Task<bool> AddPosition(Position position,string companyName)
         {
             bool data = _positionDal.AddPositions(position);
             EmailDto sendingEmail = new EmailDto()
             {
-                To = "holly.gerhold4@ethereal.email",
+                To = "recai.capkin28@gmail.com",
                 Subject = "Position Add",
-                PlaceHolders = new List<KeyValuePair<string, string>>() { 
-                    new KeyValuePair<string, string>("firma", "Recai"),
+                PlaceHolders = new List<KeyValuePair<string, string>>() {
+                    new KeyValuePair<string, string>("firma", companyName),
                     new KeyValuePair<string, string>("pozisyon",position.PositionName),
                     new KeyValuePair<string, string>("zaman",DateTime.Now.ToString())
                 }
+
             };
             _emailService.SendEmail(sendingEmail);
             return data;
